@@ -4,6 +4,8 @@
 
 App gratuite **KDL TECH** · code source public (MIT) · **100% local, aucune donnée envoyée**.
 
+🔗 **App en ligne : https://kdl-tech.fr/prompt-studio/**
+
 ---
 
 ## 🎯 Présentation
@@ -26,7 +28,12 @@ Tout fonctionne dans le navigateur. Aucune clé API, aucun service payant, aucun
 - **Export** : presse-papiers, `.txt`, `.md`.
 - **Interface sombre, moderne et responsive** (mobile / desktop).
 
-## 🚀 Installation & lancement
+## 🚀 Utilisation
+
+- **En ligne (rien à installer)** : https://kdl-tech.fr/prompt-studio/
+- **En local** : voir ci-dessous.
+
+## 🛠️ Installation & lancement local
 
 Prérequis : **Node.js 18+**.
 
