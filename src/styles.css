@@ -1,13 +1,13 @@
 :root {
-  --bg: #0a0e14;
-  --bg2: #0f1622;
-  --card: #131c2b;
-  --card2: #182335;
-  --border: #223148;
-  --text: #e6edf6;
-  --muted: #8ba0bb;
-  --cyan: #22d3ee;
-  --cyan-dim: #0e7490;
+  --bg: #0B1017;
+  --bg2: #111823;
+  --card: #18212E;
+  --card2: #1E2A3A;
+  --border: #2A3644;
+  --text: #F2F7FC;
+  --muted: #A9BDD1;
+  --cyan: #7ED4FF;   /* bleu clair de la marque (nom de variable conservé) */
+  --cyan-dim: #2E7FBA;
   --green: #34d399;
   --amber: #fbbf24;
   --red: #f87171;
@@ -32,10 +32,10 @@ html, body {
 /* Header */
 .header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
 .logo {
-  width: 44px; height: 44px; border-radius: 12px; flex: none;
-  display: grid; place-items: center; font-weight: 800; font-size: 20px;
-  color: #04222b; background: linear-gradient(135deg, var(--cyan), #67e8f9);
-  box-shadow: 0 6px 18px rgba(34, 211, 238, 0.35);
+  /* Logo officiel KDL TECH, affiché entier : la pastille « K » n'appartenait
+     pas à la charte de marque. */
+  height: 56px; width: auto; flex: none; object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(31, 82, 120, 0.45));
 }
 .header h1 { font-size: 22px; margin: 0; letter-spacing: 0.2px; }
 .header .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
@@ -61,7 +61,7 @@ html, body {
   transition: 0.15s;
 }
 .chip:hover { border-color: var(--cyan-dim); color: var(--cyan); }
-.chip.active { background: var(--cyan); color: #04222b; border-color: var(--cyan); font-weight: 600; }
+.chip.active { background: var(--cyan); color: #08131E; border-color: var(--cyan); font-weight: 600; }
 
 /* Layout */
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -85,7 +85,7 @@ input[type="text"], textarea, select {
   border: 1px solid var(--border); border-radius: 10px; padding: 9px 11px;
   font-size: 14px; font-family: inherit; outline: none; transition: 0.15s;
 }
-input:focus, textarea:focus, select:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12); }
+input:focus, textarea:focus, select:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(126, 212, 255, 0.12); }
 textarea { resize: vertical; min-height: 62px; }
 select { cursor: pointer; }
 
@@ -101,7 +101,7 @@ select { cursor: pointer; }
   font-weight: 600; transition: 0.15s; display: inline-flex; align-items: center; gap: 7px;
 }
 .btn:hover { border-color: var(--cyan-dim); }
-.btn.primary { background: linear-gradient(135deg, var(--cyan), #38bdf8); color: #04222b; border: none; }
+.btn.primary { background: linear-gradient(135deg, var(--cyan), #59B7F0); color: #08131E; border: none; }
 .btn.primary:hover { filter: brightness(1.06); }
 .btn.ghost { background: transparent; }
 .btn.danger:hover { border-color: var(--red); color: var(--red); }
@@ -154,7 +154,7 @@ pre.output {
 .hist-meta { font-size: 11px; color: var(--muted); }
 .tag {
   font-size: 10px; padding: 2px 8px; border-radius: 999px;
-  background: rgba(34, 211, 238, 0.1); color: var(--cyan); border: 1px solid rgba(34, 211, 238, 0.25);
+  background: rgba(126, 212, 255, 0.1); color: var(--cyan); border: 1px solid rgba(126, 212, 255, 0.25);
 }
 .hist-actions { display: flex; gap: 6px; margin-top: 8px; }
 .hist-actions .btn { padding: 5px 10px; font-size: 12px; }

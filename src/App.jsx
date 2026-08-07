@@ -75,7 +75,7 @@ export default function App() {
   return (
     <div className="app">
       <div className="header">
-        <div className="logo">K</div>
+        <img className="logo" src="/prompt-studio/logo-kdl.webp" alt="KDL TECH" />
         <div>
           <h1>KDL Prompt Studio</h1>
           <div className="sub">Générateur local de prompts précis pour Claude, ChatGPT, Gemini, Codex, Midjourney & autres IA.</div>
@@ -111,6 +111,7 @@ export default function App() {
 
       <div className="footer">
         KDL Prompt Studio — app gratuite <a href="https://kdl-tech.fr" target="_blank" rel="noreferrer">KDL TECH</a> · code source public (MIT) · 100% local.
+        <div style={{marginTop:6}}>© 2026 KDL TECH. Tous droits réservés.</div>
       </div>
     </div>
   );
