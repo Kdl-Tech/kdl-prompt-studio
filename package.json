@@ -4,7 +4,7 @@
   "description": "Générateur de prompts ultra-précis et optimisés pour différentes IA. 100% local.",
   "private": true,
   "type": "module",
-  "author": "KDL TECH — Karim DeLucia",
+  "author": "KDL TECH",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
