@@ -1,18 +1,19 @@
 :root {
-  --bg: #0B1017;
-  --bg2: #111823;
-  --card: #18212E;
-  --card2: #1E2A3A;
-  --border: #2A3644;
-  --text: #F2F7FC;
-  --muted: #A9BDD1;
-  --cyan: #7ED4FF;   /* bleu clair de la marque (nom de variable conservé) */
-  --cyan-dim: #2E7FBA;
-  --green: #34d399;
-  --amber: #fbbf24;
-  --red: #f87171;
+  /* Jetons app remappés sur la charte KDL « Lagon » (kdl-theme.css) */
+  --bg: var(--ecume);
+  --bg2: var(--ecume);
+  --card: var(--surf);
+  --card2: var(--ecume);
+  --border: var(--ligne);
+  --text: var(--texte);
+  --muted: var(--gris);
+  --cyan: var(--lagon);        /* nom de variable conservé, valeur = accent Lagon */
+  --cyan-dim: var(--lagon-fonce);
+  --green: var(--vert);
+  --amber: var(--ambre);
+  --red: var(--rouge);
   --radius: 14px;
-  --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow: var(--ombre-carte);
 }
 
 * { box-sizing: border-box; }
@@ -20,9 +21,9 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(1200px 600px at 80% -10%, #10233a 0%, var(--bg) 55%);
+  background: radial-gradient(1200px 600px at 80% -10%, color-mix(in srgb, var(--lagon) 14%, var(--ecume)) 0%, var(--bg) 55%);
   color: var(--text);
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--corps, "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 15px;
   line-height: 1.5;
 }
@@ -37,7 +38,7 @@ html, body {
   height: 56px; width: auto; flex: none; object-fit: contain;
   filter: drop-shadow(0 6px 10px rgba(31, 82, 120, 0.45));
 }
-.header h1 { font-size: 22px; margin: 0; letter-spacing: 0.2px; }
+.header h1 { font-family: var(--titre, inherit); color: var(--encre); font-size: 22px; margin: 0; letter-spacing: 0.2px; }
 .header .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
 .badge-free {
   margin-left: auto; align-self: flex-start;
@@ -61,7 +62,7 @@ html, body {
   transition: 0.15s;
 }
 .chip:hover { border-color: var(--cyan-dim); color: var(--cyan); }
-.chip.active { background: var(--cyan); color: #08131E; border-color: var(--cyan); font-weight: 600; }
+.chip.active { background: var(--lagon-fond); color: #fff; border-color: var(--lagon-fond); font-weight: 600; }
 
 /* Layout */
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -85,7 +86,7 @@ input[type="text"], textarea, select {
   border: 1px solid var(--border); border-radius: 10px; padding: 9px 11px;
   font-size: 14px; font-family: inherit; outline: none; transition: 0.15s;
 }
-input:focus, textarea:focus, select:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(126, 212, 255, 0.12); }
+input:focus, textarea:focus, select:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px color-mix(in srgb, var(--lagon) 20%, transparent); }
 textarea { resize: vertical; min-height: 62px; }
 select { cursor: pointer; }
 
@@ -101,8 +102,8 @@ select { cursor: pointer; }
   font-weight: 600; transition: 0.15s; display: inline-flex; align-items: center; gap: 7px;
 }
 .btn:hover { border-color: var(--cyan-dim); }
-.btn.primary { background: linear-gradient(135deg, var(--cyan), #59B7F0); color: #08131E; border: none; }
-.btn.primary:hover { filter: brightness(1.06); }
+.btn.primary { background: var(--lagon-fond); color: #fff; border: none; }
+.btn.primary:hover { background: var(--lagon-fond-h); }
 .btn.ghost { background: transparent; }
 .btn.danger:hover { border-color: var(--red); color: var(--red); }
 .btn-row { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 4px; }
@@ -124,7 +125,7 @@ pre.output {
   background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
   padding: 14px; white-space: pre-wrap; word-break: break-word; font-size: 13px;
   font-family: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
-  line-height: 1.55; max-height: 460px; overflow: auto; color: #d7e3f2;
+  line-height: 1.55; max-height: 460px; overflow: auto; color: var(--text);
 }
 .copied { color: var(--green) !important; }
 
@@ -154,7 +155,7 @@ pre.output {
 .hist-meta { font-size: 11px; color: var(--muted); }
 .tag {
   font-size: 10px; padding: 2px 8px; border-radius: 999px;
-  background: rgba(126, 212, 255, 0.1); color: var(--cyan); border: 1px solid rgba(126, 212, 255, 0.25);
+  background: var(--teinte-lagon); color: var(--lagon); border: 1px solid var(--ligne);
 }
 .hist-actions { display: flex; gap: 6px; margin-top: 8px; }
 .hist-actions .btn { padding: 5px 10px; font-size: 12px; }

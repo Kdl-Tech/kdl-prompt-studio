@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="KDL Prompt Studio — générateur local de prompts précis pour Claude, ChatGPT, Gemini, Codex, Midjourney et autres IA. Traitement 100% local." />
     <title>KDL Prompt Studio</title>
+    <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('kdl-theme')==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+    <link rel="stylesheet" href="/theme-lagon/kdl-theme.css">
   </head>
   <body>
     <div id="root"></div>
+    <aside data-kdl-promo data-app="prompt-studio"></aside>
     <script type="module" src="/src/main.jsx"></script>
+    <script defer src="/theme-lagon/kdl-theme.js"></script>
+    <script defer src="/theme-lagon/kdl-promo.js"></script>
   </body>
 </html>

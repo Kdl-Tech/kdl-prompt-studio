@@ -1,0 +1,68 @@
+/* KDL TECH — kit thème « Lagon » clair / sombre, commun au site kdl-tech.fr et aux apps.
+   Mêmes valeurs que css/kdl.css du site. Clair par défaut ; sombre si <html data-theme="dark">.
+   Jetons :
+     --ecume  fond de page        --surf   fond des cartes / panneaux
+     --encre  titres, texte fort  --texte  texte courant      --gris  texte secondaire
+     --ligne  bordures            --nuit   blocs foncés qui restent foncés (texte blanc dessus)
+     --lagon  accent (texte/liens) --lagon-fond / --lagon-fond-h  fond des boutons principaux (texte blanc)
+     --soleil  accent chaud (texte --nuit dessus)                                                    */
+@font-face{font-family:'Bricolage Grotesque';src:url('fonts/bricolage.woff2?v=2') format('woff2');font-weight:400 800;font-stretch:75% 100%;font-display:swap}
+@font-face{font-family:'Onest';src:url('fonts/onest.woff2?v=2') format('woff2');font-weight:400 700;font-display:swap}
+
+:root{
+  color-scheme:light;
+  --ecume:#F3F7FA;--surf:#FFFFFF;--blanc:#FFFFFF;
+  --encre:#123C63;--nuit:#123C63;--marine:#123C63;--logo:#1B4C74;
+  --texte:#0A1622;--gris:#3E4A57;--gris-clair:#B9CADB;--ligne:#DCE6EE;
+  --lagon:#0A7475;--lagon-fonce:#085F60;--lagon-vif:#14B8B4;--lagon-fond:#0A7475;--lagon-fond-h:#085F60;
+  --soleil:#FFC845;--vert:#1B8A5A;--rouge:#B42318;--ambre:#B54708;
+  --teinte-lagon:#E3F4F3;--teinte-soleil:#FFF3D1;--teinte-rouge:#FDECEA;
+  --titre:'Bricolage Grotesque',system-ui,sans-serif;
+  --corps:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  --r-s:12px;--r-m:20px;--r-l:28px;
+  --ombre:0 30px 60px -30px rgba(18,60,99,.45);
+  --ombre-carte:0 22px 44px -18px rgba(18,60,99,.35);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ecume:#0B1826;--surf:#12243A;
+  --encre:#EEF4FA;--nuit:#123C63;--logo:#8CC0EA;
+  --texte:#E6EEF6;--gris:#AFC0D2;--gris-clair:#8FA6BC;--ligne:#23405E;
+  --lagon:#3CC8C2;--lagon-fonce:#7ADDD8;--vert:#4CC48C;--rouge:#FF9B8F;--ambre:#FFB45C;
+  --teinte-lagon:#103A40;--teinte-soleil:#3A2F12;--teinte-rouge:#3E1A1A;
+  --ombre:0 30px 60px -30px rgba(0,0,0,.75);
+  --ombre-carte:0 22px 44px -18px rgba(0,0,0,.7);
+}
+
+/* Base minimale (à n'inclure que si l'app n'a pas déjà la sienne : classe .kdl-base sur <body>) */
+body.kdl-base{margin:0;background:var(--ecume);color:var(--texte);font:400 1rem/1.6 var(--corps);-webkit-font-smoothing:antialiased}
+body.kdl-base :is(h1,h2,h3){font-family:var(--titre);color:var(--encre);letter-spacing:-.03em;line-height:1.05}
+body.kdl-base a{color:var(--lagon)}
+
+/* Logo officiel : jamais recoloré ; en sombre il est posé sur une pastille claire */
+.kdl-logo{display:inline-grid;place-items:center;border-radius:12px}
+:root[data-theme="dark"] .kdl-logo{background:#F3F7FA;padding:3px 8px}
+
+/* Bouton soleil / lune (même dessin que le site) */
+.kdl-theme-btn{display:inline-grid;place-items:center;flex:none;width:42px;height:42px;padding:0;border-radius:12px;border:1px solid var(--ligne);background:var(--surf);color:var(--encre);cursor:pointer;transition:border-color .2s,color .2s,transform .2s var(--ease)}
+.kdl-theme-btn:hover{border-color:var(--lagon);color:var(--lagon)}
+.kdl-theme-btn:active{transform:scale(.94)}
+.kdl-theme-btn:focus-visible{outline:3px solid var(--soleil);outline-offset:2px}
+.kdl-theme-btn svg{width:21px;height:21px}
+.kdl-theme-btn .lune{display:none}
+:root[data-theme="dark"] .kdl-theme-btn .soleil{display:none}
+:root[data-theme="dark"] .kdl-theme-btn .lune{display:block;color:#FFD873}
+@media (prefers-reduced-motion:reduce){.kdl-theme-btn{transition:none}}
+
+/* Encart promo discret (kdl-promo.js) : une ligne sobre, filet soleil, masquable */
+.kdl-promo{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin:24px auto 0;max-width:720px;padding:12px 44px 12px 16px;border-radius:14px;border:1px solid var(--ligne);border-left:3px solid var(--soleil);background:color-mix(in srgb,var(--soleil) 7%,var(--surf));color:var(--texte);font:400 .88rem/1.45 var(--corps);text-align:left}
+.kdl-promo[hidden]{display:none}
+.kdl-promo__eti{flex-basis:100%;font:700 .68rem/1 var(--corps);letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.kdl-promo__txt{flex:1 1 260px;margin:0}
+.kdl-promo__lien{font-weight:700;color:var(--lagon);text-decoration:none;white-space:nowrap}
+.kdl-promo__lien:hover{text-decoration:underline}
+.kdl-promo__x{position:absolute;top:6px;right:6px;width:30px;height:30px;border:0;border-radius:8px;background:none;color:var(--gris);font:400 1.2rem/1 var(--corps);cursor:pointer}
+.kdl-promo__x:hover{background:var(--ecume);color:var(--encre)}
+.kdl-promo__x:focus-visible,.kdl-promo__lien:focus-visible{outline:3px solid var(--soleil);outline-offset:2px}

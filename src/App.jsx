@@ -25,6 +25,7 @@ export default function App() {
   const [history, setHistory] = useState([]);
 
   useEffect(() => { setHistory(getHistory()); }, []);
+  useEffect(() => { if (window.KDLTheme) window.KDLTheme.monter(); }, []);
 
   const setField = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -75,12 +76,13 @@ export default function App() {
   return (
     <div className="app">
       <div className="header">
-        <img className="logo" src="/prompt-studio/logo-kdl.webp" alt="KDL TECH" />
+        <span className="kdl-logo"><img className="logo" src={`${import.meta.env.BASE_URL}logo-kdl.webp`} alt="KDL TECH" /></span>
         <div>
           <h1>KDL Prompt Studio</h1>
           <div className="sub">Générateur local de prompts précis pour Claude, ChatGPT, Gemini, Codex, Midjourney & autres IA.</div>
         </div>
         <span className="badge-free">Gratuit</span>
+        <span data-kdl-theme-btn></span>
       </div>
 
       <div className="privacy">🔒 <b>Traitement local</b> — aucune donnée envoyée. Tout reste dans votre navigateur.</div>
