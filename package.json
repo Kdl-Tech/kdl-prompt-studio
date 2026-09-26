@@ -11,7 +11,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "start": "node src/server.cjs",
+    "build:exe": "npm run build && pkg ."
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -21,5 +23,22 @@
     "@vitejs/plugin-react": "^5.0.4",
     "vite": "^7.1.12",
     "vitest": "^3.2.4"
+  },
+  "main": "src/server.cjs",
+  "bin": "src/server.cjs",
+  "pkg": {
+    "assets": [
+      "dist/**/*"
+    ],
+    "scripts": [
+      "src/**/*.cjs"
+    ],
+    "targets": [
+      "node22-linux-x64",
+      "node22-win-x64",
+      "node22-macos-x64",
+      "node22-macos-arm64"
+    ],
+    "outputPath": "dist-exe"
   }
 }
