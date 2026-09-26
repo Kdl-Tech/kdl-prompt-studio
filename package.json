@@ -1,6 +1,6 @@
 {
   "name": "kdl-prompt-studio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Générateur de prompts ultra-précis et optimisés pour différentes IA. 100% local.",
   "private": true,
   "type": "module",
